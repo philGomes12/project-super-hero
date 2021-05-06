@@ -1,0 +1,40 @@
+<div class="container padding-top-30">
+  <div class="row">
+    <div class="col-sm">
+      <form class="example-form" [formGroup]="searchForm">
+        <mat-form-field class="example-full-width">
+          <mat-label>Super Hero</mat-label>
+          <input
+            type="email"
+            matInput
+            formControlName="searchField"
+            [errorStateMatcher]="matcher"
+            placeholder="Ex. Iron Man">
+          <mat-error *ngIf="searchForm.hasError('required')">
+            Super Hero name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </form>
+    </div>
+    <div class="col-sm">
+      <button mat-button [disabled]="enableCompare" (click)="goToComparison()">Compare</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3" *ngFor="let hero of heroes">
+      <mat-card>
+        <img mat-card-image [src]="hero.image.url" class="img-fluid" alt="Responsive image"/>
+        <mat-card-title>{{hero.name}}</mat-card-title>
+        <mat-card-subtitle>{{hero.biography['full-name']}}</mat-card-subtitle>
+        <section class="example-section">
+          <input type="checkbox" id="{{hero.id}}" name="compare" (change)="checkCompare()" (click)="buildComparison($event, hero.id)" />
+          <label for="compare"> Compare Super Hero</label><br>
+        </section>
+        <mat-card-footer>
+          <button mat-button [routerLink]="['/full-profile', hero.id]">Check complete profile</button>
+        </mat-card-footer>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
