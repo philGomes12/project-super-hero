@@ -15,13 +15,6 @@ export class FullProfileComponent implements OnInit {
   heroProfile: any;
 
   ngOnInit(): void {
-    const idSuperhero = this.route.snapshot.paramMap.get('id');
-    this.superHeroService.getSuperheroById(idSuperhero).subscribe(
-      data => {
-        if (data['response'] === 'success'){
-          this.heroProfile = data;
-        }
-      }
-    )
+    this.heroProfile = this.route.snapshot.paramMap.get('id');
   }
 }

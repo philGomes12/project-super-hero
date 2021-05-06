@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { SuperHeroService } from '../services/superheros.service';
 
 @Component({
   selector: 'app-build-profile',
@@ -7,11 +8,19 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BuildProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(public superHeroService: SuperHeroService) { }
   @Input()
+  superheroId: any;
+
   profile: any;
 
   ngOnInit(): void {
+    this.superHeroService.getSuperheroById(this.superheroId).subscribe(
+      data => {
+        if (data['response'] === 'success'){
+          this.profile = data;
+        }
+      }
+    )
   }
-
 }
