@@ -21,10 +21,15 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-3" *ngFor="let hero of heroes">
-      <mat-card>
-        <img mat-card-image [src]="hero.image.url" class="img-fluid" alt="Responsive image"/>
-        <mat-card-title>{{hero.name}}</mat-card-title>
+    <div class="col-sm-12 col-md-6 col-lg-4 col-12" *ngFor="let hero of heroes">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div
+            mat-card-avatar
+            [ngStyle]="{'background-image': 'url(' + hero.image.url + ')', 'background-size': 'cover'  }"></div>
+          <mat-card-title>{{hero.name}}</mat-card-title>
+          <mat-card-subtitle>{{hero.biography['full-name']}}</mat-card-subtitle>
+        </mat-card-header>
         <mat-card-subtitle>{{hero.biography['full-name']}}</mat-card-subtitle>
         <section class="example-section">
           <input type="checkbox" id="{{hero.id}}" name="compare" (change)="checkCompare()" (click)="buildComparison($event, hero.id)" />
