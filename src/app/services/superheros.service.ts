@@ -13,7 +13,7 @@ export class SuperHeroService{
   constructor(private http: HttpClient){}
 
   getSuperHeroByName(superheroName: string): Observable<any>{
-    const url = 'https://www.superheroapi.com/api.php/466790091239259/search/';
+    const url = 'https://www.superheroapi.com/api.php/466790091239259/search/' + superheroName;
     return this.http.get(url).pipe(
       map(response => {
         return response;
