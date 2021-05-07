@@ -18,6 +18,7 @@ import { FullProfileComponent } from './full-profile/full-profile.component';
 import {MatCheckboxDefaultOptions, MatCheckboxModule, MAT_CHECKBOX_DEFAULT_OPTIONS} from '@angular/material/checkbox';
 import { CompareComponent } from './compare/compare.component';
 import { BuildProfileComponent } from './build-profile/build-profile.component';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { BuildProfileComponent } from './build-profile/build-profile.component';
     ReactiveFormsModule,
     MatCardModule,
     MatDialogModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatButtonModule
   ],
   providers: [
     SuperHeroService,

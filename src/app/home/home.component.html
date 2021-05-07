@@ -17,11 +17,11 @@
       </form>
     </div>
     <div class="col-sm">
-      <button mat-button [disabled]="enableCompare" (click)="goToComparison()">Compare</button>
+      <button mat-raised-button color="primary" [disabled]="enableCompare" (click)="goToComparison()">Compare</button>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4 col-12" *ngFor="let hero of heroes">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-12 align-items-stretch" *ngFor="let hero of heroes">
       <mat-card class="example-card">
         <mat-card-header>
           <div
@@ -30,13 +30,12 @@
           <mat-card-title>{{hero.name}}</mat-card-title>
           <mat-card-subtitle>{{hero.biography['full-name']}}</mat-card-subtitle>
         </mat-card-header>
-        <mat-card-subtitle>{{hero.biography['full-name']}}</mat-card-subtitle>
         <section class="example-section">
           <input type="checkbox" id="{{hero.id}}" name="compare" (change)="checkCompare()" (click)="buildComparison($event, hero.id)" />
           <label for="compare"> Compare Super Hero</label><br>
         </section>
         <mat-card-footer>
-          <button mat-button [routerLink]="['/full-profile', hero.id]">Check complete profile</button>
+          <button mat-raised-button color="primary" [routerLink]="['/full-profile', hero.id]">Check complete profile</button>
         </mat-card-footer>
       </mat-card>
     </div>
