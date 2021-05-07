@@ -13,7 +13,8 @@ export class SuperHeroService{
   constructor(private http: HttpClient){}
 
   getSuperHeroByName(superheroName: string): Observable<any>{
-    const url = `${environment.endpointBaseUrl}/${environment.accessToken}/${environment.superhero.search}/${superheroName}`;
+    //const url = `${environment.endpointBaseUrl}/${environment.accessToken}/${environment.superhero.search}/${superheroName}`;
+    const url = 'https://www.superheroapi.com/api/466790091239259/search/'+ superheroName;
     return this.http.get(url).pipe(
       map(response => {
         return response;
@@ -22,7 +23,8 @@ export class SuperHeroService{
   }
 
   getSuperheroById(idSuperhero: string): Observable<any>{
-    const url = `${environment.endpointBaseUrl}/${environment.accessToken}/${idSuperhero}`;
+    //const url = `${environment.endpointBaseUrl}/${environment.accessToken}/${idSuperhero}`;
+    const url = 'https://www.superheroapi.com/api/466790091239259/' + idSuperhero;
     return this.http.get(url).pipe(
       map(response => {
         return response;
