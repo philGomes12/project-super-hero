@@ -13,7 +13,7 @@ export class SuperHeroService{
   constructor(private http: HttpClient){}
 
   getSuperHeroByName(superheroName: string): Observable<any>{
-    const url = `${environment.endpointBaseUrl}/${environment.accessToken}/${environment.superhero.search}/${superheroName}`;
+    const url = 'https://www.superheroapi.com/api.php/466790091239259/search/';
     return this.http.get(url).pipe(
       map(response => {
         return response;
