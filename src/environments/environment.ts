@@ -6,7 +6,7 @@ export const environment = {
   production: false,
 
   accessToken: '466790091239259',
-  endpointBaseUrl: `https://www.superheroapi.com/api`,
+  endpointBaseUrl: 'https://www.superheroapi.com/api',
 
   superhero: {
     search: 'search',
